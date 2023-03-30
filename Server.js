@@ -2,8 +2,36 @@ const fs=require('fs')
 const http=require('http');
 const server=http.createServer((req,res)=>{
     console.log(req.url,req.method)
+
+    // setting content type of hedaer 
+    res.setHeader('Content-type','text/html');
+    
+    //page rendering
+    let path='./views/'
+        switch(req.url){
+            case '/':
+                res.statusCode=200;
+            path=path+'index.html'
+            break;
+            case '/about':
+                res.statusCode=200;
+            path=path+'about.html'
+            break;
+            case '/about-me':
+                res.statusCode=301;
+                res.setHeader('Location','/about')
+                res.end()
+            break;
+            default:
+                res.statusCode=404;
+            path=path+'404.html'
+            break;    
+        }
+
+        
     //sending html file
-    fs.readFile('./views/index.html',(err,data)=>{
+    //read and then callback function
+    fs.readFile(path,(err,data)=>{
         if(err)
         {
             console.log(err);
