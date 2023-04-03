@@ -6,7 +6,21 @@ const app=express()
 app.set('view engine','ejs') 
 app.listen('3000')
 app.get('/',(req,res)=>{
-    res.render('index',{title:'Home'})
+    const blogs=[
+        {
+        title:'abcd',
+        snippet:'dhduwbnxj',
+        },
+        {
+        title:'kloo',
+        snippet:'wdddhddwdw',
+        },
+        {
+        title:'nckd',
+        snippet:'ddwdnkjwdkwbnxj',
+        }
+    ];
+    res.render('index',{title:'Home',blogs})
 })
 app.get('/about',(req,res)=>{
 res.render('about',{title:'About'})
