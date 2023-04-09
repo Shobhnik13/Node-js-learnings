@@ -6,6 +6,9 @@ const app=express()
 //register view engine
 app.set('view engine','ejs') 
 app.listen('3000')
+//uisng static files with express
+app.use(express.static('public'))
+//third party middleware
 app.use(morgan('dev'))
 app.get('/',(req,res)=>{
     const blogs=[
