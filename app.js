@@ -1,8 +1,12 @@
 const express=require('express')
 const morgan=require('morgan')
+const mongoose=require('mongoose')
 // the above line will be returning a function in express variable 
 //then that function in express will be called out in app variable
 const app=express()
+//connect to mongo db
+const dbURI='mongodb+srv://shobhnikw:test1234@cluster.1ottbjp.mongodb.net/Cluster?retryWrites=true&w=majority';
+mongoose.connect()
 //register view engine
 app.set('view engine','ejs') 
 app.listen('3000')
